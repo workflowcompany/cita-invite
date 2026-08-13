@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #140A16;
+  --color-bg-radial: #2A1030;
+  --color-accent: #FF3D6E;
+  --color-accent-secondary: #FFC145;
+  --color-text: #F7ECE1;
+  --color-success: #6FE0C0;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Space Grotesk", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+
+.title-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 9vw, 5.5rem);
+  line-height: 0.95;
+  text-wrap: balance;
+}
+
+.app-bg {
+  min-height: 100dvh;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 30%, var(--color-bg-radial) 0%, transparent 70%),
+    var(--color-bg);
+}
+
+.noise-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+.btn-yes-glow {
+  box-shadow:
+    0 0 20px rgba(255, 61, 110, 0.5),
+    0 0 40px rgba(255, 61, 110, 0.25),
+    0 0 60px rgba(255, 61, 110, 0.1);
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 20px rgba(255, 61, 110, 0.5),
+      0 0 40px rgba(255, 61, 110, 0.25),
+      0 0 60px rgba(255, 61, 110, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 28px rgba(255, 61, 110, 0.65),
+      0 0 56px rgba(255, 61, 110, 0.35),
+      0 0 80px rgba(255, 61, 110, 0.15);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translate(calc(-50% + var(--tx, 0px)), calc(-50% + var(--ty, 0px))) rotate(0deg); }
+  25% { transform: translate(calc(-50% + var(--tx, 0px)), calc(-50% + var(--ty, 0px))) rotate(-2deg); }
+  75% { transform: translate(calc(-50% + var(--tx, 0px)), calc(-50% + var(--ty, 0px))) rotate(2deg); }
+}
+
+.shake-loop {
+  animation: shake 0.4s ease-in-out infinite;
+}
+
+.party-glow {
+  background:
+    radial-gradient(circle at 30% 40%, rgba(255, 61, 110, 0.35) 0%, transparent 55%),
+    radial-gradient(circle at 70% 60%, rgba(255, 193, 69, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(111, 224, 192, 0.15) 0%, transparent 60%),
+    var(--color-bg-radial);
+  animation: party-pulse 2s ease-in-out infinite;
+}
+
+@keyframes party-pulse {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-yes-glow {
+    animation: none;
+  }
+
+  .shake-loop {
+    animation: none;
+  }
+
+  .party-glow {
+    animation: none;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-secondary);
+  outline-offset: 3px;
+}
