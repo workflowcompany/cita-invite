@@ -1,3 +1,5 @@
+const BASE = import.meta.env.BASE_URL;
+
 export const config = {
   /** Número de WhatsApp en formato internacional sin + ni espacios (ej: 573001234567) */
   whatsappNumber: "573209003342",
@@ -41,8 +43,8 @@ export const config = {
   },
 
   images: {
-    hero: "/img/hero.jpg",
-    final: "/img/final.jpg",
+    hero: `${BASE}img/hero.jpg`,
+    final: `${BASE}img/final.jpg`,
   },
 
   days: [
@@ -51,7 +53,7 @@ export const config = {
       label: "Sábado",
       emoji: "🌤️",
       subtitle: "Tarde libre, cero prisa",
-      image: "/img/day-sabado.jpg",
+      image: `${BASE}img/day-sabado.jpg`,
       alt: "Ilustración para salir un sábado",
     },
     {
@@ -59,7 +61,7 @@ export const config = {
       label: "Domingo",
       emoji: "☀️",
       subtitle: "Brunch y calma",
-      image: "/img/day-domingo.jpg",
+      image: `${BASE}img/day-domingo.jpg`,
       alt: "Ilustración para salir un domingo",
     },
     {
@@ -67,7 +69,7 @@ export const config = {
       label: "Lunes",
       emoji: "✨",
       subtitle: "Empezar la semana bonito",
-      image: "/img/day-lunes.jpg",
+      image: `${BASE}img/day-lunes.jpg`,
       alt: "Ilustración para salir un lunes",
     },
   ],
@@ -77,42 +79,42 @@ export const config = {
       id: "comer",
       label: "Comer",
       emoji: "🍽️",
-      image: "/img/plan-comer.jpg",
+      image: `${BASE}img/plan-comer.jpg`,
       alt: "Plan para ir a comer",
     },
     {
       id: "cafe",
       label: "Tomar café",
       emoji: "☕",
-      image: "/img/plan-cafe.jpg",
+      image: `${BASE}img/plan-cafe.jpg`,
       alt: "Plan para tomar café",
     },
     {
       id: "cocteles",
       label: "Cócteles",
       emoji: "🍸",
-      image: "/img/plan-cocteles.jpg",
+      image: `${BASE}img/plan-cocteles.jpg`,
       alt: "Plan para tomar cócteles",
     },
     {
       id: "bailar",
       label: "Bailar",
       emoji: "💃",
-      image: "/img/plan-bailar.jpg",
+      image: `${BASE}img/plan-bailar.jpg`,
       alt: "Plan para bailar",
     },
     {
       id: "cine",
       label: "Cine",
       emoji: "🎬",
-      image: "/img/plan-cine.jpg",
+      image: `${BASE}img/plan-cine.jpg`,
       alt: "Plan para ir al cine",
     },
     {
       id: "sorpresa",
       label: "Sorpréndeme",
       emoji: "🎁",
-      image: "/img/plan-sorpresa.jpg",
+      image: `${BASE}img/plan-sorpresa.jpg`,
       alt: "Plan sorpresa",
     },
   ],
